@@ -1,22 +1,12 @@
 @font-face {
-  font-family: "Inter var";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: block;
-  src: url(/fonts/Inter-roman.latin.var.woff2) format("woff2");
-}
-@font-face {
-  font-family: "Inter var";
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: block;
-  src: url(/fonts/Inter-italic.latin.var.woff2) format("woff2");
-  font-named-instance: "Italic";
+  font-family: "LXGWWenKai";
+  src: url(/fonts/LXGWWenKaiGBScreen.woff2) format("woff2");
 }
 
 body {
   font-family:
-    "Inter var",
+    "LXGWWenKai",
+    "Segoe UI Regular",
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
@@ -42,7 +32,9 @@ body {
   font-variation-settings: "wght" 450;
   font-variant: common-ligatures contextual;
   letter-spacing: -0.02em;
+  text-decoration: none;
 }
+
 b,
 strong,
 h3,
@@ -51,15 +43,17 @@ h5,
 h6 {
   font-variation-settings: "wght" 650;
 }
+
 h1 {
   font-variation-settings: "wght" 850;
 }
+
 h2 {
   font-variation-settings: "wght" 750;
 }
 
 @media screen and (min-device-pixel-ratio: 1.5),
-  screen and (min-resolution: 1.5dppx) {
+screen and (min-resolution: 1.5dppx) {
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -80,4 +74,9 @@ img.next-image {
 
 .nav-line .nav-link {
   color: #69778c;
+}
+
+#skillstr table tr:nth-child(1),
+#skillstr table tr:nth-child(2) {
+  font-weight: bolder;
 }
