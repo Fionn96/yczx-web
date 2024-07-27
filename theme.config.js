@@ -20,7 +20,7 @@ export default {
       `}</style>
 		</footer>
 	),
-	head: ({ title, meta }) => (
+	head: ({ _title, meta }) => (
 		<>
 			{meta.title && (
 				<>
