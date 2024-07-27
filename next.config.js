@@ -5,6 +5,13 @@ const withNextra = require("nextra")({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+	output: 'export',
+	distDir: 'out',
+	images: {
+		loader: 'imgix',
+		path: '',
+	}
+};
 
 module.exports = withNextra(nextConfig);
