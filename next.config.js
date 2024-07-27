@@ -8,10 +8,7 @@ const withNextra = require("nextra")({
 const nextConfig = {
 	output: 'export',
 	distDir: 'out',
-	images: {
-		loader: 'imgix',
-		path: '',
-	}
+	cleanDistDir: true,
 };
 
 module.exports = withNextra(nextConfig);
