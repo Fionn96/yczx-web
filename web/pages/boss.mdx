@@ -1,0 +1,36 @@
+---
+type: page
+title: 怪物信息
+date: 2024-07-15
+---
+
+import React, { useEffect, useState } from 'react';
+
+export default function BossRefreshTime() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://150.138.84.59:59999/monster_death_time.json');
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (error) {
+    return <div>数据加载失败: {error.message}</div>;
+  }
+
+  return (
+    <div>
+      {data ? JSON.stringify(data) : '数据加载中...'}
+    </div>
+  );
+}
