@@ -25,12 +25,31 @@ export default function BossRefreshTime() {
   }, []);
 
   if (error) {
-    return <div>数据加载失败: {error.message}</div>;
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!data) {
+    return <div>Loading...</div>;
   }
 
   return (
     <div>
-      {data ? JSON.stringify(data) : '数据加载中...'}
+      <table border="1">
+        <thead>
+          <tr>
+            <th>怪物名称</th>
+            <th>上次出生时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((monster, index) => (
+            <tr key={index}>
+              <td>{monster.monsterName}</td>
+              <td>{monster.birthTime}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
