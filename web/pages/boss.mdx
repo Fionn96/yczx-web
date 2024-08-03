@@ -33,23 +33,25 @@ export default function BossRefreshTime() {
   }
 
   return (
-    <div>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>怪物名称</th>
-            <th>上次出生时间</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((monster, index) => (
-            <tr key={index}>
-              <td>{monster.monsterName}</td>
-              <td>{monster.birthTime}</td>
+    <>
+      <div>
+        <table border="1" style={{ textAlign: 'center' }}>
+          <thead>
+            <tr>
+              <th>怪物名称</th>
+              <th>上次出生时间</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {data.map((monster, index) => (
+              <tr key={index}>
+                <td>{monster.monsterName}</td>
+                <td>{monster.birthTime}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
