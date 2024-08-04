@@ -32,25 +32,85 @@ export default function BossRefreshTime() {
     return <div>Loading...</div>;
   }
 
+  const one_hour_refresh = [
+    "蛙王", "懌匪", "神火教长老", "金刚", "神火魔祖", "巨熊妖", "嗜血恶僧",
+    "骷髅将军", "渔人蛛", "海盗船长", "犀甲之王", "死泽鱼妖", "万虫之母",
+    "死泽厉鬼", "血狮", "玄冥幽鬼", "鱼人王", "不死天尸", "昆仑奴",
+  ];
+
+  const two_hour_refresh = [
+    "玄天上将", "浑沌", "开明兽", "冰姹玄女", "金铃夫人", "黑心老人",
+    "鬼先生", "万剑一", "普智", "邪恶先锋·涛", "邪恶先锋·凯", "背叛者·瞳",
+    "背叛者·娟", "背叛者·宇", "密探·永", "骑士·鹏", "战神·龙戍", "蚩尤",
+  ];
+
+  const three_hour_refresh = [
+    "法莲王", "归蝶王", "天忍王", "樱木王", "明阳王", "风火王", "安土王",
+    "瘟皇·秦广", "冥界·天狼", "冥界·血狮", "冥界·古猿", "冥界·玄鸟",
+    "冥界·圣使", "冥界·饕餮", "冥界·兽神",
+  ];
+
+  const oneHourTable = [];
+  const twoHourTable = [];
+  const threeHourTable = [];
+  const unknownTable = [];
+
+  data.forEach(monster => {
+    if (one_hour_refresh.includes(monster.monsterName)) {
+      oneHourTable.push(monster);
+    } else if (two_hour_refresh.includes(monster.monsterName)) {
+      twoHourTable.push(monster);
+    } else if (three_hour_refresh.includes(monster.monsterName)) {
+      threeHourTable.push(monster);
+    } else {
+      unknownTable.push(monster);
+    }
+  });
+
+  const renderTable = (tableData) => {
+    return (
+      <table style={{ textAlign: 'center', width: '292px' }}>
+        <thead>
+          <tr>
+            <th>怪物名称</th>
+            <th>上次刷新时间</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((monster, index) => (
+            <tr key={index} style={{ whiteSpace: 'nowrap' }}>
+              <td>{monster.monsterName}</td>
+              <td>{monster.birthTime}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
   return (
     <>
-      <div>
-        <table border="1" style={{ textAlign: 'center' }}>
-          <thead>
-            <tr>
-              <th>怪物名称</th>
-              <th>上次刷新时间</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((monster, index) => (
-              <tr key={index}>
-                <td>{monster.monsterName}</td>
-                <td>{monster.birthTime}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+          <div style={{ flex: 1, marginLeft: '7%' }}>
+            <h3 style={{ textAlign: 'center' }}>1小时刷新</h3>
+            {renderTable(oneHourTable)}
+          </div>
+          <div style={{ flex: 1 }}>
+            <h3 style={{ textAlign: 'center' }}>2小时刷新</h3>
+            {renderTable(twoHourTable)}
+          </div>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ flex: 1, marginLeft: '7%' }}>
+            <h3 style={{ textAlign: 'center' }}>3小时刷新</h3>
+            {renderTable(threeHourTable)}
+          </div>
+          <div style={{ flex: 1 }}>
+            <h3 style={{ textAlign: 'center' }}>未知刷新</h3>
+            {renderTable(unknownTable)}
+          </div>
+        </div>
       </div>
     </>
   );
