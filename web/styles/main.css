@@ -3,6 +3,10 @@
   src: url(/fonts/LXGWWenKaiGBScreen.woff2) format("woff2");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family:
     "LXGWWenKai",
@@ -88,16 +92,23 @@ img.next-image {
   width: 110px;
   overflow-y: auto;
   max-height: 100%;
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#toc:hover {
+  opacity: 1;
 }
 
 #toc ul {
   list-style-type: none;
   padding: 0;
+  line-height: normal;
 }
-
 
 #toc ul li a {
   text-decoration: none;
+  font-size: small;
 }
 
 @media (max-width: 700px) {
