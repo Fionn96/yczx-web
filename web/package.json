@@ -7,6 +7,7 @@
 		"check": "biome check --write --unsafe ./pages"
 	},
 	"dependencies": {
+		"@million/lint": "1.0.0-rc.84",
 		"next": "^14.2.5",
 		"nextra": "^2.13.4",
 		"nextra-theme-blog": "^2.13.4",
